@@ -1,0 +1,100 @@
+﻿@model WebApplicationClientMVC.Models.Balance
+
+
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.listPlantPower)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.listPlantPower)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.p)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>*@
+        </tr>
+    }
+
+</table>
+
+<table class="table">
+
+    <tr>
+        <th><p>Total : </p></th>
+        <th><p>               </p></th>
+        <th><p>               </p></th>
+        <th><p>               </p></th>
+        <th><p>               </p></th>
+        <th>
+            @Html.DisplayFor(modelItem => modelItem.Total)
+        </th>
+    </tr>
+    <tr>
+        <th><p>Load : </p></th>
+        <th><p>               </p></th>
+        <th><p>               </p></th>
+        <th><p>               </p></th>
+        <th><p>               </p></th>
+        <th>
+            @Html.DisplayFor(modelItem => modelItem.load.load)
+        </th>
+    </tr>
+    <tr>
+        <th><p>Difference : </p></th>
+        <th><p>               </p></th>
+        <th><p>               </p></th>
+        <th><p>               </p></th>
+        <th><p>               </p></th>
+        <th>
+            @Html.DisplayFor(modelItem => modelItem.Difference)
+        </th>
+    </tr>
+    <tr>
+        <th><p>Best plant power : </p></th>
+        <th>
+            @Html.DisplayFor(modelItem => modelItem.BestPlantPower.name)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => modelItem.BestPlantPower.p)
+        </th>
+        <th>
+            <p>X</p>
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => modelItem.Units)
+        </th>
+        <th>
+            <p>=</p>
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => modelItem.Difference)
+        </th>
+    </tr>
+    <tr>
+        <th><p>Balance : </p></th>
+        <th>@Html.DisplayFor(modelItem => modelItem.load.load)</th>
+        <th><p>-</p></th>
+        <th><p>(</p></th>
+        <th>@Html.DisplayFor(modelItem => modelItem.Total) </th>
+        <th><p>+</p></th>
+        <th>@Html.DisplayFor(modelItem => modelItem.Difference)</th>
+        <th><p>)</p></th>
+        <th><p>=</p></th>
+        <th>@Html.DisplayFor(modelItem => modelItem.BalanceResult)</th>
+        <th></th>
+    </tr>
+</table>
